@@ -65,7 +65,7 @@ class Plugin_OBJ():
         self.tuner = tuner
 
         self.ffmpeg_path = self.plugin_utils.config.dict["ffmpeg"]["path"]
-        self.bufsize = self.plugin_utils.config.dict["ffmpeg"]["bufsize"]
+        self.buffsize = self.plugin_utils.config.dict["ffmpeg"]["buffsize"]
 
         if self.plugin_utils.versions.dict["ffmpeg"]["version"] == "Missing":
             raise TunerError("806 - Tune Failed: FFMPEG Missing")
@@ -74,7 +74,7 @@ class Plugin_OBJ():
 
     def get(self):
 
-        ffmpeg_proc = subprocess.Popen(self.ffmpeg_command, stdout=subprocess.PIPE, bufsize=int(self.bufsize))
+        ffmpeg_proc = subprocess.Popen(self.ffmpeg_command, stdout=subprocess.PIPE, bufsize=int(self.buffsize))
 
         def generate():
             try:
