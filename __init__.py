@@ -74,7 +74,7 @@ class Plugin_OBJ():
 
     def get(self):
 
-        ffmpeg_proc = subprocess.Popen(self.ffmpeg_command, stdout=subprocess.PIPE, bufsize=int(0 if self.buffsize is None else self.buffsize))
+        ffmpeg_proc = subprocess.Popen(self.ffmpeg_command, stdout=subprocess.PIPE, bufsize=self.buffsize)
 
         def generate():
             try:
